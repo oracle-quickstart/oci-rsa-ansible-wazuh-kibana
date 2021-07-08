@@ -1,0 +1,25 @@
+---
+#
+# Wazuh app - App configuration file
+#
+# ======================== Wazuh app configuration file ========================
+#
+# Please check the documentation for more information on configuration options:
+# https://documentation.wazuh.com/current/installation-guide/index.html
+#
+# Also, you can check our repository:
+# https://github.com/wazuh/wazuh-kibana-app
+#
+# ------------------------------- Index patterns -------------------------------
+#
+# Default index pattern to use.
+pattern: wazuh-alerts-4.x-*
+
+hosts:
+{% for api in wazuh_api_credentials %}
+  - {{ api['id'] }}:
+      url: {{ api['url'] }}
+      port: {{ api['port'] }}
+      username: {{ api['username'] }}
+      password: {{ api['password'] }}
+{% endfor %}

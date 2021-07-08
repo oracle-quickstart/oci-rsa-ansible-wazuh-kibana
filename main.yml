@@ -1,0 +1,9 @@
+---
+- hosts: all
+  roles: 
+    - role: oci-rsa-ansible-base
+      become: true
+    - role: wazuh-kibana
+      become: true
+    - role: geerlingguy.clamav
+      become: true

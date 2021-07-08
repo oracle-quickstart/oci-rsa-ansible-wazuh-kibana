@@ -1,0 +1,4 @@
+---
+# handlers file for oci-rsa-ansible-wazuh-kibana
+- name: restart kibana
+  service: name=kibana state=restarted
