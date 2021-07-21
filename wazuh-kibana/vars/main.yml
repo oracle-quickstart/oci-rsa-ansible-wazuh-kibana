@@ -32,10 +32,6 @@ kibana_newsfeed_enabled: "false"
 kibana_telemetry_optin: "false"
 kibana_telemetry_enabled: "false"
 
-opendistro_admin_password: changeme
-opendistro_kibana_user: kibanaserver
-opendistro_kibana_password: changeme
-
 local_certs_path: "/etc/ssl/local"
 
 package_repos:
@@ -54,4 +50,4 @@ wazuh_api_credentials:
     url: "https://wazuhmasterinstance.{{ domain_name }}"
     port: 55000
     username: "wazuh"
-    password: "wazuh"
+    password: "{{ wazuh_password }}"
