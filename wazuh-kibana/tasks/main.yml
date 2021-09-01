@@ -180,6 +180,11 @@
     password: "{{ opendistro_admin_password }}"
     validate_certs: no
     status_code: 200, 404
+  retries: 30
+  delay: 10
+  register: result
+  until: result.status == 200 or result.status == 404
+  changed_when: false
 
 - name: Create wazuh plugin config directory
   file:
