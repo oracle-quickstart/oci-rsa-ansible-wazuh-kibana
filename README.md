@@ -2,7 +2,7 @@
 This stack contains the Wazuh cluster Kibana Ansible playbook. This stands up the [Kibana](https://www.elastic.co/products/kibana) and [Wazuh APP](https://github.com/wazuh/wazuh-kibana-app).
 
 ## Ansible Role: Wazuh-Kibana
-More information on the Wazuh-Cluster can be found [here](/wazuh-cluster/README.md).
+More information on the Wazuh-Cluster can be found [here](/wazuh-kibana/README.md).
 
 ## Ansible Role: Wazuh Ansible
 We are using <b>Galaxy</b> which provides pre-packaged units of work known to Ansible as roles and collections. Content from 
