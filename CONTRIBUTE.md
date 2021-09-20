@@ -1,4 +1,4 @@
-# Contributing to OCI-RSA-ANSIBLE-KIBANA Quick Start Template
+# Contributing to OCI-RSA-ANSIBLE-KIBANA Ansible Playbook
 
 Oracle welcomes contributions to this repository from anyone.
 
