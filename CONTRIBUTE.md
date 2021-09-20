@@ -1,4 +1,4 @@
-# Contributing to OCI CAAS PCI E-commerce Quick Start Template
+# Contributing to OCI-RSA-ANSIBLE-KIBANA Quick Start Template
 
 Oracle welcomes contributions to this repository from anyone.
 
@@ -20,4 +20,4 @@ passes post fix
 what your changes are meant to do and provide simple steps on how to validate
 your changes, ideally referencing the test. Ensure that you reference the issue
 you created as well. We will assign the pull request to 1-2 people for review
-before it is submitted internally and the PR is closed.
+before it is submitted internally, and the PR is closed.
