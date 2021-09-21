@@ -1,6 +1,6 @@
 ## OCI-RSA-ANSIBLE-KIBANA
-This stack contains the Wazuh Cluster Kibana Ansible Playbook. This deploys up the 
-[Open Distro Kibana](https://opendistro.github.io/for-elasticsearch-docs/docs/kibana/) implementation 
+This stack contains the Wazuh [Wazuh](https://documentation.wazuh.com/current/index.html) Cluster Kibana Ansible Playbook. 
+This deploys up the [Open Distro Kibana](https://opendistro.github.io/for-elasticsearch-docs/docs/kibana/) implementation 
 and [Wazuh APP](https://github.com/wazuh/wazuh-kibana-app).
 
 ## Ansible Role: wazuh-kibana
@@ -43,7 +43,6 @@ A list of other roles hosted on Github:
 This playbook deploys [Open Distro Kibana](https://opendistro.github.io/for-elasticsearch-docs/docs/kibana/)
 implementation as well as the [Wazuh APP](https://github.com/wazuh/wazuh-kibana-app).
 
-### Bundling Playbook Dependencies:
 To run this playbook, this repository needs to be bundled up with the required collections and roles and uploaded to an 
 object storage bucket as a tgz file.
 
@@ -53,13 +52,17 @@ Command to install the ansible roles
 ```
 ansible-galaxy install --ignore-certs -r requirements.yml -p ./.galaxy-roles
 ```
-Command to bundle up the playbook
+
+Command to bundle up the playbook. Here the `playbook_zip` variable is `target_dir/playbook_name`
 ```
 tar -czf $playbook_zip $playbook_name
 ```
-Here the `playbook_zip` variable is `target_directory/playbook_name`
 
-### Launching the Playbook:
+Command to upload the tar file to object storage
+```
+oci os object put -ns $namespace -bn $bucketname --file $playbook_zip --name ${playbook_name}.tgz
+```
+
 After terraform provisions the instances, the bootstrapping script pulls the appropriate tar file from object store and 
 runs the playbook.
 
@@ -74,15 +77,18 @@ An `extra_variables.yml` file is required to set the variables below. These valu
 and sent to the instances during bootstrapping. Here, the OpenDistro elasticsearch admin password, OpenDistro Kibana password
 and Wazuh password can be overridden by the user.
 ```
-opendistro_kibana_password: "{}"
-opendistro_admin_password: "{}"
-wazuh_password: "{}"
+opendistro_kibana_password: "${}"
+opendistro_admin_password: "${}"
+wazuh_password: "${}"
 ```
 
 ## Documentation
 
 * [Wazuh Ansible documentation](https://documentation.wazuh.com/current/deploying-with-ansible/index.html)
 * [Full documentation](http://documentation.wazuh.com)
+
+## The Team
+This repository was developed by the Oracle OCI Regulatory Solutions and Automation(RSA) team.
 
 ## How to Contribute
 Interested in contributing?  See our contribution [guidelines](CONTRIBUTE.md) for details.

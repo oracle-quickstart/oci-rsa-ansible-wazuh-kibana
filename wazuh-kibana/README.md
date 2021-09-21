@@ -1,10 +1,12 @@
 Role: WAZUH-KIBANA
 =========
+
 Installs the [Open Distro Kibana](https://opendistro.github.io/for-elasticsearch-docs/docs/kibana/) 
 implementation and [Wazuh APP](https://github.com/wazuh/wazuh-kibana-app).
 
 Requirements
 ------------
+
 This role will work on:
 
 - [Ansible core](https://docs.ansible.com/ansible-core/devel/index.html) >= 2.11.0
@@ -12,7 +14,7 @@ This role will work on:
 
 Role Variables
 --------------
----
+
 Overrides the cluster settings like Open Distro Kibana version to 1.13.2, wazuh version to 4.1.5 and Open Distro Elastic
 stack version to 7.10.2 .
 ```
@@ -109,12 +111,14 @@ wazuh_api_credentials:
 
 Dependencies
 ------------
+
 None
 
 Example Playbook
 ----------------
 
-An example of how to use the roles:
+Use the oci-rsa-ansible-base role before to install the required software. An `extra-variables.yml` file can also be used 
+to pass in other variables. An example of how to use the role:
 ```
     ---
     - hosts: all
@@ -129,9 +133,6 @@ An example of how to use the roles:
           become: true
 ```
 
-
-## How to Contribute
-Interested in contributing?  See our contribution [guidelines](CONTRIBUTE.md) for details.
 
 ## License
 This repository and its contents are licensed under [UPL 1.0](https://opensource.org/licenses/UPL).
