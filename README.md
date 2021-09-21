@@ -15,7 +15,7 @@ installs and configures Wazuh agent and manager.
 
 ## Ansible Role: oci-rsa-ansible-Base
 Installs base packages and sets configuration for general security, monitoring, and auditing purposes. More information 
-on the oci-rsa-ansible-base can be found [here]().
+on the oci-rsa-ansible-base can be found [here](PLACEHOLDER).
 
 ## Requirements
 
@@ -31,7 +31,7 @@ A list of other roles hosted on Galaxy:
   Elastic Stack
 
 A list of other roles hosted on Github:
-* [oci-rsa-ansible-base](): Installs base packages and sets configuration for general security, monitoring, and auditing 
+* [oci-rsa-ansible-base](PLACEHOLDER): Installs base packages and sets configuration for general security, monitoring, and auditing 
   purposes.
   
 
