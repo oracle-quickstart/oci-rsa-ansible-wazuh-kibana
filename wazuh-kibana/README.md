@@ -98,25 +98,6 @@ package_repos:
       baseurl: 'deb https://packages.wazuh.com/4.x/apt/ stable main'
       gpg: 'https://packages.wazuh.com/key/GPG-KEY-WAZUH'
 ```
-
-Default Variables
-------------
-
-```
-opendistro_admin_password: changeme
-opendistro_kibana_user: kibanaserver
-opendistro_kibana_password: changeme
-```
-
-```
-wazuh_api_credentials:
-  - id: "default"
-    url: "https://wazuhmasterinstance.{{ domain_name }}"
-    port: 55000
-    username: "wazuh"
-    password: "wazuh"
-```
-
 Setting the Wazuh API credentials and username is "wazuh". The password attribute can be overridden.
 ```
 wazuh_api_credentials:
@@ -125,6 +106,26 @@ wazuh_api_credentials:
     port: 55000
     username: "wazuh"
     password: "{{ wazuh_password }}"
+```
+
+Default Variables
+------------
+By default, the following values are set for the Open Distro admin password, Kibana username and password. It is highly
+recommended changing the passwords to have more secure values.
+
+```
+opendistro_admin_password: changeme
+opendistro_kibana_user: kibanaserver
+opendistro_kibana_password: changeme
+```
+By default, the Wazuh username and password is set to `wazuh`.
+```
+wazuh_api_credentials:
+  - id: "default"
+    url: "https://wazuhmasterinstance.{{ domain_name }}"
+    port: 55000
+    username: "wazuh"
+    password: "wazuh"
 ```
 
 Dependencies

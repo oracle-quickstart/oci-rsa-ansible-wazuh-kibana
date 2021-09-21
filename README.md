@@ -9,8 +9,8 @@ Kibana and Wazuh App on the target instance. Detailed information on the wazuh-k
 [here](/wazuh-kibana/README.md). 
 
 ## Ansible Role: wazuh-ansible
-We are using <b>Galaxy</b> which provides pre-packaged units of work known to Ansible as roles and collections. Content 
-from roles and collections of the <b>wazuh-ansible</b> are referenced in oci-rsa-ansible-wazuh-kibana. ThisReadme cleanup playbook 
+We are using **Galaxy** which provides pre-packaged units of work known to Ansible as roles and collections. Content 
+from roles and collections of the **wazuh-ansible** are referenced in oci-rsa-ansible-wazuh-kibana. This playbook 
 installs and configures Wazuh agent and manager.
 
 ## Ansible Role: oci-rsa-ansible-base
