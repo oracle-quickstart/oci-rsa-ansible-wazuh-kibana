@@ -10,10 +10,10 @@ Kibana and Wazuh App on the target instance. Detailed information on the wazuh-k
 
 ## Ansible Role: wazuh-ansible
 We are using <b>Galaxy</b> which provides pre-packaged units of work known to Ansible as roles and collections. Content 
-from roles and collections of the <b>wazuh-ansible</b> are referenced in oci-rsa-ansible-wazuh-kibana. This playbook 
+from roles and collections of the <b>wazuh-ansible</b> are referenced in oci-rsa-ansible-wazuh-kibana. ThisReadme cleanup playbook 
 installs and configures Wazuh agent and manager.
 
-## Ansible Role: oci-rsa-ansible-Base
+## Ansible Role: oci-rsa-ansible-base
 Installs base packages and sets configuration for general security, monitoring, and auditing purposes. More information 
 on the oci-rsa-ansible-base can be found [here](PLACEHOLDER).
 
@@ -41,7 +41,7 @@ A list of other roles hosted on Github:
 
 ## Usage
 This playbook deploys [Open Distro Kibana](https://opendistro.github.io/for-elasticsearch-docs/docs/kibana/)
-implementation as well as the [Wazuh APP](https://github.com/wazuh/wazuh-kibana-app).
+implementation as well as the [Wazuh App](https://github.com/wazuh/wazuh-kibana-app).
 
 To run this playbook, this repository needs to be bundled up with the required collections and roles and uploaded to an 
 object storage bucket as a tgz file.
@@ -88,7 +88,7 @@ wazuh_password: "${}"
 * [Full documentation](http://documentation.wazuh.com)
 
 ## The Team
-This repository was developed by the Oracle OCI Regulatory Solutions and Automation(RSA) team.
+This repository was developed by the Oracle OCI Regulatory Solutions and Automation (RSA) team.
 
 ## How to Contribute
 Interested in contributing?  See our contribution [guidelines](CONTRIBUTE.md) for details.

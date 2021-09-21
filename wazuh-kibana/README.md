@@ -99,6 +99,24 @@ package_repos:
       gpg: 'https://packages.wazuh.com/key/GPG-KEY-WAZUH'
 ```
 
+Default Variables
+------------
+
+```
+opendistro_admin_password: changeme
+opendistro_kibana_user: kibanaserver
+opendistro_kibana_password: changeme
+```
+
+```
+wazuh_api_credentials:
+  - id: "default"
+    url: "https://wazuhmasterinstance.{{ domain_name }}"
+    port: 55000
+    username: "wazuh"
+    password: "wazuh"
+```
+
 Setting the Wazuh API credentials and username is "wazuh". The password attribute can be overridden.
 ```
 wazuh_api_credentials:
