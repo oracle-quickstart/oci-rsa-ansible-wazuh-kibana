@@ -2,7 +2,7 @@ Role: WAZUH-KIBANA
 =========
 
 Installs the [Open Distro Kibana](https://opendistro.github.io/for-elasticsearch-docs/docs/kibana/) 
-implementation and [Wazuh APP](https://github.com/wazuh/wazuh-kibana-app).
+implementation and [Wazuh App](https://github.com/wazuh/wazuh-kibana-app).
 
 Requirements
 ------------
@@ -15,7 +15,7 @@ This role will work on:
 Role Variables
 --------------
 
-Overrides the cluster settings like Open Distro Kibana version to 1.13.2, wazuh version to 4.1.5 and Open Distro Elastic
+Overrides the cluster settings like Open Distro Kibana version to 1.13.2, Wazuh version to 4.1.5 and Open Distro Elastic
 stack version to 7.10.2 .
 ```
 kibana_opendistro_version: 1.13.2

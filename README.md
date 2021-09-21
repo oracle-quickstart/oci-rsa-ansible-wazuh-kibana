@@ -1,11 +1,11 @@
 ## OCI-RSA-ANSIBLE-KIBANA
-This stack contains the Wazuh [Wazuh](https://documentation.wazuh.com/current/index.html) Cluster Kibana Ansible Playbook. 
+This stack contains the [Wazuh](https://documentation.wazuh.com/current/index.html) cluster Kibana Ansible Playbook. 
 This deploys up the [Open Distro Kibana](https://opendistro.github.io/for-elasticsearch-docs/docs/kibana/) implementation 
-and [Wazuh APP](https://github.com/wazuh/wazuh-kibana-app).
+and [Wazuh App](https://github.com/wazuh/wazuh-kibana-app).
 
 ## Ansible Role: wazuh-kibana
-We developed this role to stand the Open Distro Kibana in Wazuh Cluster based on the configurations and requirements. Installs  
-Kibana and Wazuh APP on the target instance. Detailed information on the wazuh-kibana role and role variables can be found 
+We developed this role to stand the Open Distro Kibana in Wazuh cluster based on the configurations and requirements. Installs  
+Kibana and Wazuh App on the target instance. Detailed information on the wazuh-kibana role and role variables can be found 
 [here](/wazuh-kibana/README.md). 
 
 ## Ansible Role: wazuh-ansible
