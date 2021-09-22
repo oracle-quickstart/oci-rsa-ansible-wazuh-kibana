@@ -1,5 +1,6 @@
 ---
 # vars file for oci-rsa-ansible-wazuh-es
+ansible_playbook_name: "oci-rsa-ansible-wazuh-es"
 
 # Cluster Settings
 kibana_opendistro_version: 1.13.2
