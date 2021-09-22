@@ -1,38 +1,157 @@
-Role Name
+Role: WAZUH-KIBANA
 =========
 
-A brief description of the role goes here.
+Installs the [Open Distro Kibana](https://opendistro.github.io/for-elasticsearch-docs/docs/kibana/) 
+implementation and [Wazuh App](https://github.com/wazuh/wazuh-kibana-app).
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+This role will work on:
+
+- [Ansible core](https://docs.ansible.com/ansible-core/devel/index.html) >= 2.11.0
+- [Oracle Autonomous Linux](https://www.oracle.com/linux/autonomous-linux/) >= 7.9
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Overrides the cluster settings like Open Distro Kibana version to 1.13.2, Wazuh version to 4.1.5 and Open Distro Elastic
+stack version to 7.10.2 .
+```
+kibana_opendistro_version: 1.13.2
+wazuh_version: 4.1.5
+elastic_stack_version: 7.10.2
+```
+
+Overrides the Kibana node settings and Kibana node network settings.
+```
+kibana_node_name: '{{ ansible_fqdn }}'
+kibana_server_name: "kibana"
+kibana_server_host: "0.0.0.0"
+kibana_conf_path: /etc/kibana
+kibana_server_port: "5601"
+kibana_max_payload_bytes: 1048576
+```
+
+Disabling build from existing sources.
+``` 
+build_from_sources: false
+```
+
+Overriding Wazuh branch plugin to 4.1-7.10
+```
+wazuh_plugin_branch: 4.1-7.10
+```
+
+Setting the Nodejs NODE_OPTIONS.
+```
+node_options: --no-warnings --max-old-space-size=2048 --max-http-header-size=65536
+```
+
+Setting the url for the Wazuh application.
+```
+wazuh_app_url: https://packages.wazuh.com/4.x/ui/kibana/wazuh_kibana
+```
+
+Domain refers to the Wazuh subnet inside the primary VCN.
+```
+domain_name: 'wazuhsubnet.primaryvcn.oraclevcn.com'
+```
+
+Sets the Open Distro cluster name to "wazuh".
+```
+opendistro_cluster_name: wazuh
+```
+
+Setting the Open Distro ElasticSearch node http port, and the network host.
+```
+elasticsearch_network_host: 'elasticnode0.{{ domain_name }}'
+elasticsearch_http_port: '9200'
+```
+
+Enabling security for the Open Distro Kibana implementation.
+```
+kibana_opendistro_security: true
+```
+
+Disabling Newsfeed and Telemetry for Kibana.
+```
+kibana_newsfeed_enabled: "false"
+kibana_telemetry_optin: "false"
+kibana_telemetry_enabled: "false"
+```
+
+The local path to store the generated certificates (Open Distro security plugin).
+```
+local_certs_path: "/etc/ssl/local"
+```
+
+Links to the Open Distro packages
+```
+package_repos:
+  yum:
+    opendistro:
+      baseurl: 'https://packages.wazuh.com/4.x/yum/'
+      gpg: 'https://packages.wazuh.com/key/GPG-KEY-WAZUH'
+  apt:
+    opendistro:
+      baseurl: 'deb https://packages.wazuh.com/4.x/apt/ stable main'
+      gpg: 'https://packages.wazuh.com/key/GPG-KEY-WAZUH'
+```
+Setting the Wazuh API credentials and username is "wazuh". The password attribute can be overridden.
+```
+wazuh_api_credentials:
+  - id: "default"
+    url: "https://wazuhmasterinstance.{{ domain_name }}"
+    port: 55000
+    username: "wazuh"
+    password: "{{ wazuh_password }}"
+```
+
+Default Variables
+------------
+By default, the following values are set for the Open Distro admin password, Kibana username and password. It is highly
+recommended changing the passwords to have more secure values.
+
+```
+opendistro_admin_password: changeme
+opendistro_kibana_user: kibanaserver
+opendistro_kibana_password: changeme
+```
+By default, the Wazuh username and password is set to `wazuh`.
+```
+wazuh_api_credentials:
+  - id: "default"
+    url: "https://wazuhmasterinstance.{{ domain_name }}"
+    port: 55000
+    username: "wazuh"
+    password: "wazuh"
+```
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Use the oci-rsa-ansible-base role before to install the required software. An `extra-variables.yml` file can also be used 
+to pass in other variables. An example of how to use the role:
+```
+    ---
+    - hosts: all
+      vars_files: 
+        - ../extra-variables.yml
+      roles: 
+        - role: oci-rsa-ansible-base
+          become: true
+        - role: wazuh-kibana
+          become: true
+        - role: geerlingguy.clamav
+          become: true
+```
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
 
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+## License
+This repository and its contents are licensed under [UPL 1.0](https://opensource.org/licenses/UPL).
