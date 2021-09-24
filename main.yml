@@ -7,5 +7,3 @@
       become: true
     - role: wazuh-kibana
       become: true
-    - role: geerlingguy.clamav
-      become: true

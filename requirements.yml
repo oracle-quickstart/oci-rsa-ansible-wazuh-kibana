@@ -1,7 +1,5 @@
 ---
 roles:
-  - name: geerlingguy.clamav
-    version: 1.3.2
   - name: wazuh-ansible
     src: git+https://github.com/wazuh/wazuh-ansible.git
   - name: oci-rsa-ansible-base
