@@ -148,8 +148,6 @@ to pass in other variables. An example of how to use the role:
           become: true
         - role: wazuh-kibana
           become: true
-        - role: geerlingguy.clamav
-          become: true
 ```
 
 
