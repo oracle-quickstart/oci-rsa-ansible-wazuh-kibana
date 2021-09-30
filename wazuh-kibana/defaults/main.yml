@@ -10,3 +10,6 @@ wazuh_api_credentials:
     port: 55000
     username: "wazuh"
     password: "wazuh"
+
+# Target for Wazuh agent registration
+registration_address: "wazuh-lb.wazuh-cluster.local"
